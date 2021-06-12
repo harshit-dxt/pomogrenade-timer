@@ -1,4 +1,4 @@
-var countdownTime = 0;
+var countdownTime = 10;
 
 function setTime(time){
     countdownTime = (new Date()).getTime() + time*60000;
