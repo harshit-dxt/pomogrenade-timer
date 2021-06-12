@@ -23,7 +23,7 @@ header {
     text-align: center;
 }
 
-.logo {
+#logo {
     font-weight: 900;
     letter-spacing:8px;
     color: var(--pink);
@@ -36,7 +36,7 @@ main {
     margin-top: 150px;
 }
 
-.timer {
+#timer {
     display: flex;
     flex-direction: row;
     height: 330px;
@@ -44,7 +44,7 @@ main {
     align-items: center;
 }
 
-.minute {
+#minutes {
     width: 240px;
     height: 330px;
     background-color: var(--pink);
@@ -58,15 +58,19 @@ main {
     align-items: center;
 }
 
+#colon {
+    margin-top: 48px;
+}
+
 .col {
     width: 24px;
     height: 24px;
     border-radius: 50%;
     background-color: #E74D3D;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
-.seconds {
+#seconds {
     width: 240px;
     height: 330px;
     background-color: var(--pink);
@@ -80,13 +84,13 @@ main {
     align-items: center;
 }
 
-.startStopBtn {
+#startStopBtn {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 112px;
-    width: 108px;
-    height: 108px;
+    width: 76px;
+    height: 76px;
     border-radius: 50%;
     background-color: var(--pink);
 }
