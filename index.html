@@ -28,7 +28,7 @@
         </section>
 
         <section class="controlBtn">
-            <div id="startStopBtn">
+            <div onclick="updateTimer()" id="startStopBtn">
                 <div id="startStop">START</div>
             </div>
         </section>
@@ -36,13 +36,13 @@
 
         <section class="btn-group">
             <div id="btns">
-                <div class="timer-button" id="5-minutes-btn">
+                <div onclick="setTime(5)" class="timer-button" id="5-minutes-btn">
                     5 MINUTES
                 </div>
-                <div class="timer-button" id="10-minutes-btn">
+                <div onclick="setTime(10)" class="timer-button" id="10-minutes-btn">
                     10 MINUTES
                 </div>
-                <div class="timer-button" id="25-minutes-btn">
+                <div onclick="setTime(25)" class="timer-button" id="25-minutes-btn">
                     25 MINUTES
                 </div>
             </div>
@@ -50,16 +50,7 @@
 
     </main>
 
-<script>
-
-    const startStopBtn = document.getElementById("startStopBtn");
-    const startStop = document.getElementById("startStop");
-
-    startStopBtn.addEventListener(onclick, () => {
-
-    })
-
-</script>
+<script src="index.js"></script>
 
 </body>
 </html>
