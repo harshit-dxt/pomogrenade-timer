@@ -1,15 +1,48 @@
+const startStopBtn = document.getElementById("startStopBtn");
+const startStop = document.getElementById("startStop");
+
+function animate() {
+    startStopBtn.classList.add("animate-element");
+    startStop.classList.add('animate__animated', 'animate__bounce');
+}
+
+startStopBtn.addEventListener('click', function () {
+    animate();
+    if(startStop.innerHTML === "STOP") {
+        startStop.innerHTML = "START";
+    }
+    startStop.innerHTML = "STOP";
+})
+
+
 var countdownTime;
 var mins;
+var secs;
+var intervalId;
 function setTime(time){
     document.getElementById("minutes").innerHTML = time;
     document.getElementById("seconds").innerHTML = "00";
     mins = time;
-    clearInterval(updateTimer);
+    secs = 0;
+    clearInterval(intervalId);
+}
+
+function stopCountdown(){    
+    console.log("Called");
+    var now = new Date().getTime();
+    var timeleft = countdownTime - now;
+    mins = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    secs = Math.floor((timeleft % (1000 * 60)) / 1000);
+    document.getElementById("minutes").innerHTML = mins;
+    document.getElementById("seconds").innerHTML = secs;
+    clearInterval(intervalId);
+    document.getElementById("startStopBtn").setAttribute("onclick", "beginCountdown()"); 
 }
 
 function beginCountdown(){
-    countdownTime = (new Date()).getTime() + mins*60000;
-    setInterval(updateTimer, 1000);
+    countdownTime = (new Date()).getTime() + mins*60000 + secs * 1000;
+    intervalId = setInterval(updateTimer, 1000);
+    document.getElementById("startStopBtn").setAttribute("onclick", "stopCountdown()");
 }
 
 const updateTimer = function(){
