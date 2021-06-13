@@ -25,6 +25,8 @@ function setTime(time){
     document.getElementById("seconds").innerHTML = "00";
     mins = time;
     secs = 0;
+    startStop.innerHTML = "START";
+    document.getElementById("startStopBtn").setAttribute("onclick", "beginCountdown()"); 
     clearInterval(intervalId);
 }
 
