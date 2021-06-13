@@ -16,7 +16,8 @@ body {
     color: white;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 header {
@@ -149,7 +150,6 @@ main {
     right: 50%;
     bottom: 0;
     opacity: 0;
-    content: "";
     background-color: var(--pink);
 }
 
@@ -160,3 +160,9 @@ main {
     opacity: 1;
     z-index: -1;
 }
+
+#animContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
