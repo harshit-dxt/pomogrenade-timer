@@ -1,10 +1,14 @@
-var countdownTime = 10;
+var countdownTime;
+var mins;
 function setTime(time){
-    countdownTime = (new Date()).getTime() + time*60000;
+    document.getElementById("minutes").innerHTML = time;
+    document.getElementById("seconds").innerHTML = "00";
+    mins = time;
     clearInterval(updateTimer);
 }
 
 function beginCountdown(){
+    countdownTime = (new Date()).getTime() + mins*60000;
     setInterval(updateTimer, 1000);
 }
 
