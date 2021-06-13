@@ -13,20 +13,24 @@
 <body>
     
 
-    <lottie-player 
-        src="https://assets10.lottiefiles.com/packages/lf20_1Urv0u.json"  
-        background="transparent"  
-        speed="1"  
-        style="width: 800px; height: 800px;" 
-        id="blast" 
-        loop autoplay>
-    </lottie-player>
+    
 
     <header>
         <div id="logo">{/} pomoGrenade - Boom your productivity {/}</div>
     </header>
 
-    <main>
+    <div id="blast">
+        <lottie-player 
+            src="https://assets10.lottiefiles.com/packages/lf20_1Urv0u.json"  
+            background="transparent"  
+            speed="0.8"  
+            style="width: 800px; height: 800px;"  
+            loop
+            count=3 autoplay>
+        </lottie-player>
+    </div>
+
+    <main id="timer-body">
         <section class="timer-section">
             <div id="timer">
                 <div id="minutes">10</div>
@@ -63,13 +67,6 @@
 
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-    <lottie-player 
-        src="https://assets10.lottiefiles.com/packages/lf20_1Urv0u.json"  
-        background="transparent"  
-        speed="1"  
-        style="width: 800px; height: 800px;"  
-        loop autoplay>
-    </lottie-player>
     <script src="script.js"></script>
 
 </body>
