@@ -149,7 +149,6 @@ main {
     right: 50%;
     bottom: 0;
     opacity: 0;
-    content: "";
     background-color: var(--pink);
 }
 
@@ -164,6 +163,7 @@ main {
 #animContainer {
     width: 100%;
     height: 100%;
+
   }
 
 #blast {
@@ -171,3 +171,5 @@ main {
     position: absolute;
     /* display: none; */
 }
+    position: relative;
+  }
