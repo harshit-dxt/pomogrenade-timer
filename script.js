@@ -1,15 +1,79 @@
-const startStopBtn = document.getElementById("startStopBtn");
-    const startStop = document.getElementById("startStop");
+var startStopBtn = document.getElementById("startStopBtn");
+var startStop = document.getElementById("startStop");
 
-    function animate() {
-        startStopBtn.classList.add("animate-element");
-        startStop.classList.add('animate__animated', 'animate__bounce');
+function animate() {
+    startStopBtn.classList.add("animate-element");
+    startStop.classList.add('animate__animated', 'animate__bounce');
+    
+}
+
+startStopBtn.addEventListener('animationend', () =>{
+    startStopBtn.classList.remove("animate-element");
+});
+
+startStop.addEventListener("animationend", () => {
+    startStop.classList.remove("animate__animated", "animate__bounce");
+});
+
+
+var countdownTime;
+var mins = 10;
+var secs = 0;
+var intervalId;
+function setTime(time){
+    document.getElementById("minutes").innerHTML = time;
+    document.getElementById("seconds").innerHTML = "00";
+    mins = time;
+    secs = 0;
+    clearInterval(intervalId);
+}
+
+function stopCountdown(){   
+    animate(); 
+    startStop.innerHTML = "START";
+    var now = new Date().getTime();
+    var timeleft = countdownTime - now;
+    mins = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    secs = Math.floor((timeleft % (1000 * 60)) / 1000);
+    document.getElementById("minutes").innerHTML = mins;
+    document.getElementById("seconds").innerHTML = secs;
+    clearInterval(intervalId);
+    document.getElementById("startStopBtn").setAttribute("onclick", "beginCountdown()"); 
+}
+
+function beginCountdown(){
+    animate();
+    startStop.innerHTML = "STOP";
+    countdownTime = (new Date()).getTime() + mins*60000 + secs * 1000;
+    intervalId = setInterval(updateTimer, 1000);
+    document.getElementById("startStopBtn").setAttribute("onclick", "stopCountdown()");
+}
+
+const updateTimer = function(){
+    
+    var now = new Date().getTime();
+    var timeleft = countdownTime - now;
+        
+    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+        
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    if (timeleft < 0) {
+        clearInterval(updateTimer);
+        document.getElementById("minutes").innerHTML = "00";
+        document.getElementById("seconds").innerHTML = "00";
     }
+};
 
-    startStopBtn.addEventListener('click', function () {
-        animate();
-        if(startStop.innerHTML === "STOP") {
-            startStop.innerHTML = "START";
-        }
-        startStop.innerHTML = "STOP";
-    })
+// ------ANIMATION----------
+
+
+var animation = bodymovin.loadAnimation({
+    container: document.getElementById('animContainer'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets10.lottiefiles.com/packages/lf20_1Urv0u.json' // lottie file path
+  })

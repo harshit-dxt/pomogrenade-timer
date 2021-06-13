@@ -7,12 +7,21 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <title>💣pomoGrenade</title>
 </head>
 <body>
     
+
+    <lottie-player 
+        src="https://assets10.lottiefiles.com/packages/lf20_1Urv0u.json"  
+        background="transparent"  
+        speed="1"  
+        style="width: 800px; height: 800px;" 
+        id="blast" 
+        loop autoplay>
+    </lottie-player>
+
     <header>
         <div id="logo">{/} pomoGrenade - Boom your productivity {/}</div>
     </header>
@@ -20,17 +29,17 @@
     <main>
         <section class="timer-section">
             <div id="timer">
-                <div id="minutes">12</div>
+                <div id="minutes">10</div>
                 <div id="colon">
                     <div class="col" id="col-1"></div>
                     <div class="col" id="col-2"></div>
                 </div>
-                <div id="seconds">20</div>
+                <div id="seconds">00</div>
             </div>
         </section>
 
         <section class="controlBtn">
-            <div id="startStopBtn">
+            <div onclick="beginCountdown()" id="startStopBtn">
                 <div id="startStop">START</div>
             </div>
         </section>
@@ -38,19 +47,23 @@
 
         <section class="btn-group">
             <div id="btns">
-                <div class="timer-button" id="5-minutes-btn" onclick="setTime(5)">
+                <div onclick="setTime(5)" class="timer-button" id="5-minutes-btn">
                     5 MINUTES
                 </div>
-                <div class="timer-button" id="10-minutes-btn" onclick="setTime(10)">
+                <div onclick="setTime(10)" class="timer-button" id="10-minutes-btn">
                     10 MINUTES
                 </div>
-                <div class="timer-button" id="25-minutes-btn" onclick="setTime(25)">
+                <div onclick="setTime(25)" class="timer-button" id="25-minutes-btn">
                     25 MINUTES
                 </div>
             </div>
         </section>
+
     </main>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     
-<script src="script.js"></script>
+    <script src="script.js"></script>
+
 </body>
 </html>
