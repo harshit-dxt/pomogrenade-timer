@@ -1,5 +1,6 @@
 var startStopBtn = document.getElementById("startStopBtn");
 var startStop = document.getElementById("startStop");
+const explosion = document.getElementById("explosion");
 
 function animate() {
     startStopBtn.classList.add("animate-element");
@@ -68,6 +69,8 @@ const updateTimer = function(){
         document.getElementById("seconds").innerHTML = "00";
         document.getElementById("blast").style.display="inherit";
         document.getElementById("timer-body").style.display="none";
+        
+        explosion.play();
         setTimeout(()=>{
             document.getElementById("blast").style.display="none";
             document.getElementById("timer-body").style.display="";
@@ -88,13 +91,3 @@ var animation = bodymovin.loadAnimation({
     autoplay: true,
     path: 'https://assets10.lottiefiles.com/packages/lf20_1Urv0u.json' // lottie file path
   })
-
-// function reset() {
-//     var duration = 5000;
-//     $({to:0}).animate({to:1}, duration, function() {
-//         document.getElementById("blast").style.display="none";
-//         document.getElementById("timer-body").style.display="inherit";  
-//     })
-// }
-
-// https://stackoverflow.com/questions/35133311/js-settimeout-alternative
